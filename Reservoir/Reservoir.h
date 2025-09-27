@@ -1,21 +1,44 @@
 #pragma once
+
+enum ResType
+{
+	OCEAN = 1,
+	SEA,
+	RIVER,
+	LAKE,
+	POND,
+	POOL,
+	FOUNTAIN,
+	NONE = 0
+};
+
 class Reservoir
 {
-	char* name;
-	double width;
-	double length;
-	double depth;
-
+	char* reservoirName;
+	double width, length, depth;
+	ResType reservoirType;
 public:
 	Reservoir();
-	Reservoir(const char* name);
+	Reservoir(const char* name, double w, double l, double d, ResType type);
 
 	Reservoir(const Reservoir& copy);
 	Reservoir& operator=(const Reservoir& copy);
 	~Reservoir();
 
-	double Volume(double w, double l, double d);
-	double Area(double w, double l);
-	bool operator==(Reservoir& obj);
-	bool operator>(Reservoir& obj);
+	char* GetReservoirName();
+	double GetWidth();
+	double GetLength();
+	double GetDepth();
+	ResType GetReservoirType();
+
+	void SetReservoirName(const char* name);
+	void SetWidth(double w);
+	void SetLength(double l);
+	void SetDepth(double d);
+	void SetReservoirType(ResType type);
+
+	void EnterValues();
+	void PrintValues();
+
+	double operator*();
 };
