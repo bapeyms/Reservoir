@@ -149,8 +149,48 @@ void Reservoir::PrintValues()
 	cout << " 7 - fountain)" << endl << endl;
 }
 
-double Reservoir::operator*()
+double Reservoir::GetVolume()
 {
 	return width * length * depth;
 }
+double Reservoir::GetArea() const
+{
+	return width * length;
+}
+
+bool Reservoir::operator==(const Reservoir& second)
+{
+	if (reservoirType == second.reservoirType)
+	{
+		return true;
+	}
+	return false;
+}
+bool Reservoir::operator!=(const Reservoir& second)
+{
+	if (reservoirType != second.reservoirType)
+	{
+		return true;
+	}
+	return false;
+}
+
+bool Reservoir::operator>(const Reservoir& second)
+{
+	if (GetArea() > second.GetArea())
+	{
+		return true;
+	}
+	return false;
+}
+bool Reservoir::operator<(const Reservoir& second)
+{
+	if (GetArea() < second.GetArea())
+	{
+		return true;
+	}
+	return false;
+}
+
+
 

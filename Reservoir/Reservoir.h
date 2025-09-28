@@ -40,5 +40,12 @@ public:
 	void EnterValues();
 	void PrintValues();
 
-	double operator*();
+	double GetVolume();
+	double GetArea() const;
+
+	bool operator==(const Reservoir& second);
+	bool operator!=(const Reservoir& second);
+
+	bool operator>(const Reservoir& second);
+	bool operator<(const Reservoir& second);
 };
